@@ -1,0 +1,159 @@
+body {
+    background: rgb(189, 255, 252);
+    width: 100%;
+    margin: 0px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-family: "Ubuntu", sans-serif;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto;
+}
+
+.content {
+    animation: pop-in 1s;
+    background: rgb(189, 255, 252);
+    padding: 0 10px;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-columns: auto;
+    height: 99vh;
+    gap: 0.5% 0;
+    justify-content: center;
+    position: sticky;
+    top: 0%;
+    padding: 0.5% 1%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        rgb(252, 215, 187),
+        rgba(252, 215, 187, 0.8)
+    );
+    font-size: small;
+    animation: slide-in 2s ease;
+}
+
+.post {
+    padding: 0% 2%;
+    border: 2px solid rgb(255, 142, 138);
+    border-radius: 10px;
+}
+
+.post-title {
+    font-family: "Roboto Slab";
+    text-align: center;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 30px;
+    gap: 80px;
+    align-items: center;
+}
+
+.image-grid-items > a > img {
+    transition: all 250ms ease-in 0s;
+    width: 300px;
+}
+
+.image-grid-items > a > img:hover {
+    will-change: transform;
+    transform: scale(105%);
+}
+
+.image-grid-items > p {
+    font-size: 1.3em;
+    text-align: center;
+}
+#image-1 {
+    width: 350px;
+}
+
+.para-1 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+.subtitle > p {
+    grid-area: 2 / 1 / span 2 span 2;
+}
+
+.para-1 > h2 {
+    grid-area: 1 / 1 / span 1 / span 3;
+}
+
+.para-1 > img {
+    margin: 0 20px 0 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 5px 5px 3px rgb(135, 135, 135);
+}
+
+@media only screen and (max-width: 768px) {
+    #main {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+    }
+    .sidebar {
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 20vh;
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        font-size: smaller;
+        justify-content: left;
+        background: linear-gradient(
+            to bottom,
+            rgba(252, 215, 187, 0.9),
+            rgb(252, 215, 187)
+        );
+        animation: pop-in 2s ease;
+    }
+
+    .post {
+        min-width: 50vw;
+    }
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100;
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+
+    80% {
+        transform: translateX(-10px);
+        opacity: 50;
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
